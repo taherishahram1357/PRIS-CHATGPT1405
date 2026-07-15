@@ -1,15 +1,39 @@
-const scenarios = [
-  {name:'Supplier delay +30 days', impact:'3 Projects affected', cost:'+12M'},
-  {name:'Budget increase 10%', impact:'2 Projects affected', cost:'+25M'}
-];
+import { runDelayScenario } from '../core/services/scenarioService';
 
 export default function Scenarios(){
- return <main className="p-8">
-  <h1 className="text-3xl font-bold mb-6">Scenario Analysis</h1>
-  <div className="space-y-4">{scenarios.map(s=><div key={s.name} className="bg-white border rounded-xl p-5">
-   <h2 className="font-semibold">{s.name}</h2>
-   <p className="mt-2">Impact: {s.impact}</p>
-   <p>Estimated Cost Effect: {s.cost}</p>
-  </div>)}</div>
- </main>
+
+  const result = runDelayScenario('S1', 30);
+
+  return (
+    <main className="p-8 bg-gray-100 min-h-screen">
+      <h1 className="text-3xl font-bold mb-6">
+        Scenario Intelligence
+      </h1>
+
+      <div className="bg-white border rounded-xl p-6">
+        <h2 className="text-xl font-semibold">
+          Supplier Delay Scenario
+        </h2>
+
+        <p className="mt-3">
+          Delay Simulation: {result.delayDays} Days
+        </p>
+
+        <p className="mt-3">
+          Portfolio Impact Score: {result.impact.totalImpact}
+        </p>
+
+        <div className="mt-4 space-y-2">
+          {result.impact.affectedNodes.map(node => (
+            <div
+              key={node}
+              className="border rounded-lg p-3"
+            >
+              {node}
+            </div>
+          ))}
+        </div>
+      </div>
+    </main>
+  );
 }
