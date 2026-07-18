@@ -1,5 +1,10 @@
-import MainLayout from './layouts/MainLayout';
+import AppShell from "./components/AppShell";
+import ExecutiveDashboard from "./pages/ExecutiveDashboard";
 
 export default function App() {
-  return <MainLayout />;
+  return (
+    <AppShell>
+      <ExecutiveDashboard />
+    </AppShell>
+  );
 }
