@@ -20,3 +20,17 @@ Executive portfolio intelligence platform for project risk monitoring, domino ef
 - Risk Management
 - Domino Effect Analysis
 - Scenario Simulation
+
+## PRIS Demo v1 Development Direction
+
+Current implementation focus:
+
+- Standalone executive demonstration with synthetic but traceable project portfolio data
+- Portfolio risk intelligence views
+- Risk propagation and domino-effect visualization
+- Scenario simulation foundation
+- Service-based architecture for demo modules
+
+## Development Rule
+
+Each major implementation increment is committed separately with a clear commit message and traceable SHA.
